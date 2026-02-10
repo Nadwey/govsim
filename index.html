@@ -64,13 +64,13 @@
             const rank = document.getElementById("rank");
 
             const updateKondensator = () => {
-                document.getElementById("range").max = timeline.length;
-                document.getElementById("range").value = timeline.length;
+                document.getElementById("range").max = timeline.length - 1;
+                document.getElementById("range").value = timeline.length - 1;
             };
 
             const build = () => {
                 const cap = document.getElementById("flux");
-                cap.innerHTML = `<input type="range" min="0" max="${timeline.length}" value="${timeline.length}" class="slider" id="range"><br><div class="ydisp">Rok: <span id="year">${timeline.length}</span></div><br><img src="assets/fcap.webp" class="fcap">`;
+                cap.innerHTML = `<input type="range" min="0" max="${timeline.length - 1}" value="${timeline.length - 1}" class="slider" id="range"><br><div class="ydisp">Rok: <span id="year">${timeline.length - 1}</span></div><br><img src="assets/fcap.webp" class="fcap">`;
                 const slider = document.getElementById("range");
                 slider.oninput = function () {
                     let level = timeline[this.value];
@@ -82,7 +82,7 @@
                             `<span style="font-size:${0.5 - level / 10}rem">Nepotyzm robi brr${"r".repeat(-level)}</span><br><img src="assets/nep.jpg" style="width: ${-level * 2}rem"><br>`;
                     }
                 };
-                document.getElementById("year").innerHTML = `${2000 + timeline.length} p.n.e (po naszej erze)`;
+                document.getElementById("year").innerHTML = `${2000 + timeline.length - 1} p.n.e (po naszej erze)`;
             };
 
             const upgrade = () => {
